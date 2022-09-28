@@ -16,8 +16,18 @@ public class Insertion
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-
+    for (int i=1; 1 < arr.length; ++i) {
+        int k = arr[1];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > k) {
+        arr[j + 1] = arr[j]; 
+        j = j - 1; 
+    
+    }
+    arr[j + 1] = k;
   }
+  return arr;
+}
   
   public static void main(String[] args) {
     int[] arr = {53,85,93,25,39,27,42,5,24,45,33,51,5,80,4,7,91,
