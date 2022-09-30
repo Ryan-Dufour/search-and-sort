@@ -16,29 +16,77 @@ public class Selection
    */
   public static int[] sort(int[] arr) {
     // Your algorithm goes here!
-    int i= 0;
-    int j;
-    int temp;
-    int min;
-    int minindex;
-    while (i < arr.length - 1){
-      j = i;
-      min = Arr[j];
-      minindex = j;
-      temp = Arr[j];
+    class SelectionSort
+{
+// Selection Sort Method
+void sort(int array[])
+{
+int n = array.length;
+for (int i = 0; i < n-1; i++)
+{
+int min_element = i;
+for (int j = i+1; j < n; j++)
+if (array[j] < array[min_element])
+min_element = j;
+int temp = array[min_element];
+array[min_element] = array[i];
+array[i] = temp;
+}
+}
+// Method to print the elements of an array
+void printarrayay(int array[])
+{
+int n = array.length;
+for (int i=0; i<n; ++i)
+System.out.print(array[i]+" ");
+System.out.println();
+}
+    
+    
+    //int i= 0;
+    
+    
+    //int j;
+    //int temp;
+    //int min = 2;
+    //int minindex= 3;
+    //while (i < arr.length - 1){
+      //j = i;
+      //min = arr[j];
+      //minindex = j;
+      //temp = arr[j];
+      
+      //while(min > arr[j+1]){
+      
+      //min = arr[j+1];
+      //minindex = j+1;
+      
+      
+      
     }
     
 
-    if (min > Arr[j+1])
-    {
-      min =   
-    }    
-    }
+    //if (min> arr[j+1])
+   // {
+     // min =   arr[j+1];
+     // minindex = j+1;
+    //} 
+    //else if(j < arr.length - 1)
+   // {
+      
+        
+        //j++;
+      
+    //}
     
     
+ 
+    
+    return arr;
     
 
-  }
+}
+  
 
   
   public static void main(String[] args) {
