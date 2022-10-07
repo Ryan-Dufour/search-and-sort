@@ -14,67 +14,58 @@ public class Selection
     /**
      * Returns the sorted array
      */
-    public static int[] sort(int[] arr) {
-        // Your algorithm goes here!
-        class SelectionSort
-        {
-            // Selection Sort Method
-            void sort(int array[])
-            {
-                int n = array.length;
-                for (int i = 0; i < n-1; i++)
-                {
-                    int min_element = i;
-                    for (int j = i+1; j < n; j++)
-                        if (array[j] < array[min_element])
-                            min_element = j;
-                    int temp = array[min_element];
-                    array[min_element] = array[i];
-                    array[i] = temp;
+    public static void sortAscending(final int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minElementIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[minElementIndex] > arr[j]) {
+                    minElementIndex = j;
                 }
             }
-            // Method to print the elements of an array
-            void printarrayay(int array[])
-            {
-                int n = array.length;
-                for (int i=0; i<n; ++i)
-                    System.out.print(array[i]+" ");
-                System.out.println();
+
+            if (minElementIndex != i) {
+                int temp = arr[i];
+                arr[i] = arr[minElementIndex];
+                arr[minElementIndex] = temp;
+            }
+        }
+    }
+
+    public static void sortDescending(final int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int maxElementIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[maxElementIndex] < arr[j]) {
+                    maxElementIndex = j;
+                }
             }
 
-            //int i= 0;
-    
-            //int j;
-            //int temp;
-            //int min = 2;
-            //int minindex= 3;
-            //while (i < arr.length - 1){
-            //j = i;
-            //min = arr[j];
-            //minindex = j;
-            //temp = arr[j];
-
-            //while(min > arr[j+1]){
-
-            //min = arr[j+1];
-            //minindex = j+1;
-
-      
+            if (maxElementIndex != i) {
+                int temp = arr[i];
+                arr[i] = arr[maxElementIndex];
+                arr[maxElementIndex] = temp;
+            }
         }
+    }
 
-        //if (min> arr[j+1])
-        // {
-        // min =   arr[j+1];
-        // minindex = j+1;
-        //} 
-        //else if(j < arr.length - 1)
-        // {
+    public static void main(String[] args) {
+        int[] arr = {53,85,93,25,39,27,42,5,24,45,33,51,5,80,4,7,91,
+                31,66,71,32,19,79,58,61,82,89,63,7,4,50,10,48,24,75,19,22,
+                73,54,51,25,33,20,52,79,97,70,54,63,49};    
 
-        //j++;
-        //}
-    
-    
-        return arr;
+        // Test the sort
+        testSort(sort(arr));
+    }
+
+    public static void testSort(int[] arr) {
+        for (int i=0; i<arr.length-1; i++) {
+            if (arr[i] > arr[i+1]) {
+                System.out.println("FAIL at index "+i);
+                System.out.println(Arrays.toString(arr));
+                return;
+            }
+        }
+        System.out.println("SUCCESS!");
 
     }
 
